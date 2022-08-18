@@ -1,0 +1,28 @@
+table {
+    margin-top: 10px;
+}
+tr {
+    vertical-align: middle
+}
+p {
+    font-weight: bold;
+}
+.checkbox {
+    width: 5%;
+    text-align: center;
+}
+.checkbox-style {
+    width: 5%;
+    text-align: center;
+}
+.card {
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: rgba(190, 190, 190, 0.25);
+    border: none;
+}
+.form-control {
+    background-color: transparent;
+    border: 1px solid #8f8f8f;
+}
