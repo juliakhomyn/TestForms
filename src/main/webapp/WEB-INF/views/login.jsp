@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" style="font-size: x-large; font-weight: bold">TestForms</a>
         <div class="d-flex">
-            <a href="/registration" class="btn btn-outline-light" type="button" >Sign in</a>
+            <a href="/registration" class="btn btn-outline-light" type="button" >Sign Up</a>
         </div>
     </div>
 </nav>

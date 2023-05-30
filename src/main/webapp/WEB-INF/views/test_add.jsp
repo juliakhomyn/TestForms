@@ -106,7 +106,8 @@
             '<input class="form-control" type="text" placeholder="Enter option" name="option" required>' +
             '<input hidden name="questionId" value="' + questionIndex + '">' +
             '</td>' +
-            '<td style="width: 5%"><input type="button" class="btn btn-outline-dark deleteOption" value="Del" onclick="deleteOption(this)"></td>' +
+            '<td style="width: 5%"><button type="button" class="btn btn-outline-dark deleteOption" onclick="deleteOption(this)"><span><i class="bi bi-trash"></i></span></button></td>' +
+            // '<td style="width: 5%"><input type="button" class="btn btn-outline-dark deleteOption" value="Del" onclick="deleteOption(this)"></td>' +
             '</tr>';
         console.log(questionIndex);
         $('#tbody' + questionIndex).append(option);

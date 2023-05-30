@@ -26,26 +26,26 @@ public class UserController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/edit/{id}")
-    public String editBook(Model model, @PathVariable Integer id) {
-        User user = userService.findById(id);
-        model.addAttribute("user", user);
-        model.addAttribute("role", user.getRole());
-        model.addAttribute("roles", roleService.findAll());
-        model.addAttribute("currentUser", userService.getCurrentUser());
-        return "user_edit";
-    }
-
-    @PostMapping("/edit/{id}")
-    public String editBook(@PathVariable Integer id, @RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam(required = false) String role) {
-        User user = userService.findById(id);
-        user.setName(name);
-        user.setSurname(surname);
-        user.setEmail(email);
-        if (role != null) {
-            user.setRole(roleService.findById(Integer.parseInt(role)));
-        }
-        userService.update(user);
-        return "redirect:/home";
-    }
+//    @GetMapping("/edit/{id}")
+//    public String editUser(Model model, @PathVariable Integer id) {
+//        User user = userService.findById(id);
+//        model.addAttribute("user", user);
+//        model.addAttribute("role", user.getRole());
+//        model.addAttribute("roles", roleService.findAll());
+//        model.addAttribute("currentUser", userService.getCurrentUser());
+//        return "user_edit";
+//    }
+//
+//    @PostMapping("/edit/{id}")
+//    public String editUser(@PathVariable Integer id, @RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam(required = false) String role) {
+//        User user = userService.findById(id);
+//        user.setName(name);
+//        user.setSurname(surname);
+//        user.setEmail(email);
+//        if (role != null) {
+//            user.setRole(roleService.findById(Integer.parseInt(role)));
+//        }
+//        userService.update(user);
+//        return "redirect:/home";
+//    }
 }

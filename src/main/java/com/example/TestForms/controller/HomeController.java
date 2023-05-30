@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -114,6 +115,29 @@ public class HomeController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout=true";
+    }
+
+    @GetMapping("/home/edit/{id}")
+    public String editUser(Model model, @PathVariable Integer id) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        model.addAttribute("role", user.getRole());
+        model.addAttribute("roles", roleService.findAll());
+        model.addAttribute("currentUser", userService.getCurrentUser());
+        return "user_edit";
+    }
+
+    @PostMapping("/home/edit/{id}")
+    public String editUser(@PathVariable Integer id, @RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam(required = false) String role) {
+        User user = userService.findById(id);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setEmail(email);
+        if (role != null) {
+            user.setRole(roleService.findById(Integer.parseInt(role)));
+        }
+        userService.update(user);
+        return "redirect:/home";
     }
 
 }
